@@ -1,0 +1,28 @@
+---
+description: Modus Figma workspace — MCP, PROJECT.md, and design-system discipline
+globs:
+alwaysApply: true
+---
+
+# Modus Figma workspace (Cursor)
+
+Cursor project shell for **Modus 2.0** design work in Figma via MCP.
+
+## Before Figma design sessions
+
+1. Connect Figma MCP: chat `/add-plugin figma` or copy `.cursor/mcp.json.example` → `.cursor/mcp.json` and **Connect** in Settings.
+2. Edit **PROJECT.md**: set **destination file URL** (where pages are created) and session goal.
+3. User says **"let's start"** → run skill **figma-preflight**.
+
+## Workflows
+
+| Goal | Skills |
+|------|--------|
+| Screenshot → page in Figma | preflight → reference-interpreter → `confirmed` → component-rules + figma-style-binding |
+| Audit / token map only | preflight |
+
+## Hard rules
+
+- No Figma writes before Design Brief **`confirmed`**.
+- No raw colors/spacing in Figma output — variables and styles only.
+- Library: Modus 2.0 URL in PROJECT.md; instances from linked library, not rebuilt buttons/inputs.
