@@ -4,6 +4,36 @@ Cursor workspace to adapt [claude2figma](https://github.com/senlindesign/claude2
 
 Open this folder in Cursor when you run design sessions against the Modus atomic library.
 
+## Requirements
+
+### Tools
+
+| Requirement | Notes |
+|-------------|--------|
+| **[Cursor](https://cursor.com)** (current desktop build) | Agent chat with **Tools & MCP** enabled. Open this repo as the workspace root. |
+| **[Figma MCP](https://developers.figma.com/docs/figma-mcp-server/)** | Install via chat **`/add-plugin figma`** (recommended) or copy [`.cursor/mcp.json.example`](./.cursor/mcp.json.example) to `.cursor/mcp.json` and **Connect** in **Cursor Settings → Tools & MCP**. Uses the remote server `https://mcp.figma.com/mcp` and Figma OAuth. |
+| **Figma plugin skills in Cursor** | Optional but recommended for reliable **`use_figma`** flows: **figma-use**, **figma-generate-design** (installed with the Figma plugin or from the marketplace). |
+
+### Figma account and files
+
+| Requirement | Notes |
+|-------------|--------|
+| **Figma account** | Same account you use when connecting MCP. |
+| **Access to Modus 2.0 — Atomic Design System** | View (minimum) on the [library file](https://www.figma.com/design/y9H5ucQKBjzI8JLuVrGcb3/Modus-2.0---Atomic-Design-System). Your org must grant library use if the file is team-restricted. |
+| **Destination file** | A separate Figma file where you create pages/prototypes, with **Modus 2.0 enabled as a linked library**. Set its URL in [PROJECT.md](./PROJECT.md). Preflight allows read-only work without it; **canvas writes are blocked** until a destination URL is set. |
+| **Edit permission on the destination file** | Required to create frames and instances. |
+| **Write to canvas (remote MCP)** | Figma may require a **Full** seat (or eligible plan) to write outside drafts; see [Figma MCP plans and permissions](https://developers.figma.com/docs/figma-mcp-server/). Features and limits can change during beta. |
+
+### Network and secrets
+
+- Outbound HTTPS to Figma (`mcp.figma.com`, `figma.com`) for MCP.
+- Do **not** commit `.cursor/mcp.json` if it contains personal tokens; it is listed in [`.gitignore`](./.gitignore). Use **Connect** (OAuth) instead of pasting tokens when possible.
+
+### What this repo assumes
+
+- Design system **already exists in Figma** (Modus 2.0). This repo does not scaffold a DS from scratch.
+- Sessions follow **preflight → optional Design Brief → `confirmed` → build**; see skills under [`.cursor/skills/`](./.cursor/skills/).
+
 ## Quick start
 
 1. **Open this folder in Cursor** (`File → Open Folder` → `modus-cursor-figma`).
